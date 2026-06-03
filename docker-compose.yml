@@ -1,0 +1,17 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: sqlite:////app/data/store_intelligence.db
+      POS_PATH: /app/data/raw/pos_transactions.csv
+      STORE_LAYOUT_PATH: /app/data/raw/store_layout.json
+    volumes:
+      - ./data:/app/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import requests; r=requests.get('http://localhost:8000/health', timeout=2); raise SystemExit(0 if r.status_code < 500 else 1)"]
+      interval: 20s
+      timeout: 5s
+      retries: 3
+

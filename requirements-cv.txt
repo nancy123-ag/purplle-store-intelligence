@@ -1,0 +1,4 @@
+-r requirements.txt
+opencv-python-headless==4.10.0.84
+ultralytics==8.3.57
+lap==0.5.13

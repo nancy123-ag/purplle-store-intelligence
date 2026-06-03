@@ -1,0 +1,13 @@
+.coverage
+.git
+.pytest_cache
+.venv
+__pycache__
+*.pyc
+*.pyo
+*.pt
+data
+htmlcov
+dist
+build
+.env
